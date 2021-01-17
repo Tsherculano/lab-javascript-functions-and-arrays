@@ -1,15 +1,95 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2) { //Não é necessário usar o else, pois fica subentendido que se não for o num1, será o num2. Não esquecer de chamar return para o num2
+  if(num1 >= num2) {
+    return num1;
+  } 
+   
+  return num2;
+}
+
+//Outra opção é usando => function maxOfTwoNumbers(num1, num2) { => return Math.max(num1, num2); } (Opção sinalizada pelo prof. Henrique no vídeo de revisão)
+
+// console.log(maxOfTwoNumbers(4,6))
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arrayOfStrings) {
+  if(arrayOfStrings.length === 0) {
+    return null;
+  }
+
+  let maxWord = '';
+
+  for(let i = 0; i < arrayOfStrings.length; i += 1) {
+    if(arrayOfStrings[i].length > maxWord.length) {
+      maxWord = arrayOfStrings[i];
+    }
+  }
+  return maxWord;
+}
+
+// console.log(findLongestWord([]));
+
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(arrayOfNumbers) {
+  let sum = 0;
+
+  for(let i = 0; i < arrayOfNumbers.length; i += 1) {
+    sum += arrayOfNumbers[i];
+  }
+
+  return sum;
+}
+
+//Interation: 3.1 => Bonus
+
+const arrayMix = [6, 'Anderson', 'Thiago', 'true', 'false', {}, [], 12];
+
+function sum(array) {
+let sumOfMix = 0;
+
+for(let i = 0; i < array.length; i += 1) {
+  const typeOfData = typeof array[i];
+
+  if(typeOfData === 'number') {
+    sumOfMix += array[i];
+  } else if(typeOfData === 'string') {
+    sumOfMix += array[i].length;
+  } else if(typeOfData === 'boolean') {
+    if(array[i]) {
+      sumOfMix += 1;
+    }
+  } else {
+    throw new Error("Unsupported data type sir or ma'am");
+  }
+}
+
+return sumOfMix;
+
+}
+
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(arrayOfNumbers) {
+  if(arrayOfNumbers.length === 0) {
+    return null;
+  }
+
+
+const sumOfNumbers = sumNumbers(arrayOfNumbers);
+
+return sumOfNumbers / arrayOfNumbers.length;
+
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
@@ -71,3 +151,4 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
